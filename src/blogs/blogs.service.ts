@@ -29,7 +29,6 @@ export class BlogsService {
   async findAll() {
     return this.blogModel.find();
   }
-
   async findOne(id: string) {
     if (!isValidObjectId(id)) {
       throw new BadGatewayException('invalid ID format');
@@ -37,7 +36,6 @@ export class BlogsService {
     const blog = await this.blogModel.findById(id);
     return blog;
   }
-
   async update(id: string, updateBlogDto: UpdateBlogDto) {
     if (!isValidObjectId(id)) {
       throw new BadGatewayException('invalid ID format');
@@ -58,7 +56,6 @@ export class BlogsService {
       data: updatedBlog,
     };
   }
-
   async remove(id: string) {
     if (!isValidObjectId(id)) {
       throw new BadGatewayException('invalid ID format');
